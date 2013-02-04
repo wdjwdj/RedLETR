@@ -9,9 +9,9 @@ This is a class project in the Emory Biomedical Informatics Department for Sprin
 Contributors include:
 David A Gutman MD PHD
 
-Tianlei Xu
-Ameen Kazerouni
-Sanjay Agravat 
-Xin Chen
+<br> Tianlei Xu </br>
+<br> Ameen Kazerouni </br>
+<br> Sanjay Agravat </br>
+<br> Xin Chen </br>
 
 The goal is to try and match up a CSV file that I am trying to import into REDCAP to a data dictionary, and do online validation
