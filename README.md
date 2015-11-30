@@ -1,19 +1,13 @@
 RedLETR
 =======
 
-REDCAP Load Extract Translate Revise-- Web based tool for importing data into REDCap or a relational database 
 
+REDCAP Load Extract Translate Revise (REDLETR) - Web based tool for importing data into REDCap.
 
-This is a class project in the Emory Biomedical Informatics Department for Spring 2013
+This repository contains the code for the 2014-2015 use case involving the transformation clinical neuropsychology batteries (2010-2014) from various ad hoc solutions to a flexible, centrally-managed, REDCap-backed database.
 
-Contributors include:
-David A Gutman MD PHD
+Importantly, our new version contains added features not available in the basic functionality of REDCap such as norm scoring and report generation, facilitating its smooth integration into the clinical workflow.
 
-<br> Yanhui Liang </br>
-<br> Tianlei Xu </br>
-<br> Ameen Kazerouni </br>
-<br> Sanjay Agravat </br>
-<br> Xin Chen </br>
-<br>Bob</br>
+We have provided our code and documentation as a resource for similar institutions likewise interested in moving clinical research stores to more flexible advanced databases.
 
-The goal is to try and match up a CSV file that I am trying to import into REDCAP to a data dictionary, and do online validation
+Currently under construction (Nov 20 2015)
