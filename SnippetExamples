@@ -1,0 +1,66 @@
+Code Snippet 1: Conversion of XLS files to XLSX
+
+## Sample from the ofc.ini file modified
+## Data is organized in   C:\RAW_DATA\Neuro\2011, C:\RAW_DATA\Neuro\2012\,etc.
+## Editing below [FoldersToConvert] tag in ofc.ini
+fldr=C:\RAW_DATA\Neuro
+## At the bottom of the file, specify Destination Path and Source Template
+DestinationPathFolder=C:\CONVERTED\*1\*2\*3
+SourcePathTemplate=*\*\*
+
+
+
+
+Code Snippet 2: Unlocking XLSX workbooks and worksheets using Python win32com.client library
+
+import win32com.client as win32
+import glob
+excel = win32.gencache.EnsureDispatch('Excel.Application')
+ws_pass = 'some_password'
+glob_base_path = 'C:\CONVERTED\*\*.xlsx'
+excel_files_to_process = glob.glob(glob_base_path)
+for xlsx_file in excel_files_to_process:
+      print xlsx_file
+      wb = excel.Workbooks.Open( xlsx_file)
+      for ws in wb.Worksheets:
+          print 'Unprotecting Worksheet:',ws.Name
+          ws.Unprotect(ncv.ws_pass)
+      wb.Unprotect(ncv.ws_pass)
+      excel.ActiveWorkbook.Close(SaveChanges=1)
+      excel.Application.Quit()
+
+
+
+
+Code Snippet 3:  Simple Case: One to one XLSX cell
+
+MOCA_vars = {'map_type': 'simple', 'var_dict': { 'moca_trail_scr': 'B18', 'moca_cube_scr':'B32', 'moca_clock_hands':'D52'}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Code Snippet 4: Complex Case: Many to One Relationship
+
+FAS_vars = { 'map_type' : 'complex', 'var_dict': {
+  'fas_f_1': ['B12', 'B13', 'B14', 'B15', 'B16', 'B17', 'B18', 'C12', 'C13', 'C14', 'C15', 'C16', 'C17', 'C18'],
+  'fas_f_2': ['B19', 'B20', 'B21', 'B22', 'B23', 'B24', 'B25', 'C19', 'C20', 'C21', 'C22', 'C23', 'C24', 'C25'],
+  'fas_f_3': ['B26', 'B27', 'B28', 'B29', 'B30', 'B31', 'B32', 'C26', 'C27', 'C28', 'C29', 'C30', 'C31', 'C32'],           
+  'fas_f_4': ['B33', 'B34', 'B35', 'B36', 'B37', 'B38', 'B39', 'C33', 'C34', 'C35', 'C36', 'C37', 'C38', 'C39'],
+  'fas_f_tot': ['B40']} }
+
+
+
+
+Code Snippet 5: Example of unmaintainable scoring formula in Excel-based testing battery
+
+=IF(AND(A65=7,A66=20),LOOKUP(M87,fas_F_AA_9_60_T),IF(AND(A65=8,A66=20),LOOKUP(M87,fas_F_AA_9_65_T),IF(AND(A65=9,A66=20),LOOKUP(M87,fas_F_AA_9_70_T),IF(AND(A65=10,A66=20),LOOKUP(M87,fas_F_AA_9_75_T),IF(AND(A65=11,A66=20),LOOKUP(M87,fas_F_AA_9_80_T),IF(AND(A65=12,A66=20),LOOKUP(M87,fas_f_aa_9_85_t)))))))
